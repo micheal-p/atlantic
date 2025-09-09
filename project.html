@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCCTC - The Project</title>
+    <link rel="icon" href="images/9WbJjctfhc6v.svg" type="image/svg" sizes="16x16">
+    <link rel="icon" href="images/9WbJjctfhc6v.svg" type="image/svg" sizes="32x32">
+    <link rel="apple-touch-icon" href="images/9WbJjctfhc6v.svg" sizes="180x180">
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <section class="splash">
+        <div class="splash-image-left">
+            <img src="images/line.svg" alt="Left Image">
+        </div>
+        <div class="splash-image-right">
+            <img src="images/line.svg" alt="Right Image">
+        </div>
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="images/mainlogo.png" alt="ASCCTC Logo">
+                <span class="logo-text">ASCCTC</span>
+            </a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="project.html" class="active">The Project</a></li>
+                <li><a href="program.html">Our Programs</a></li>
+                <li><a href="org.html">Our Organization</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </div>
+        <div class="mobile-menu-overlay">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-logo">
+                </div>
+                <nav class="mobile-menu-nav">
+                    <a href="project.html" class="active">The Project</a>
+                    <a href="program.html">Our Programs</a>
+                    <a href="org.html">Our Organization</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+        <div class="splash-content">
+            <h1>The Project</h1>
+        </div>
+    </section>
+    <section class="white-section">
+        <div class="content-section">
+            <div class="content-left">
+                <img src="images/project1.jpg" alt="Seaport Image">
+            </div>
+            <div class="content-right">
+                <h2>Deep-Water Mega-Port Terminal</h2>
+                <p>The Atlantic Seaport City & Cargo Terminal Cross River is designed to be a multi-faceted development, combining a state-of-the-art seaport with an intelligent, self-sustaining urban environment.</p>
+                <h3>CAPACITY</h3>
+                <p>Our seaport will feature a dredged depth of 60 feet, making it capable of accommodating the largest vessels in the world. This ensures seamless global maritime connectivity and positions us as a pivotal player in international trade.</p>
+                <h3>ADVANCED TECHNOLOGIES</h3>
+                <p>The port will utilize cutting-edge automated terminal technologies, including robotics, artificial intelligence, and IoT solutions, to optimize cargo handling, security, and operational efficiency.</p>
+            </div>
+        </div>
+        <div class="content-section-mid">
+            <div class="content-right-mid">
+                <h2>Integrated Smart City</h2>
+                <h3>URBAN DESIGN</h3>
+                <p>The smart city will be meticulously planned to integrate residential, commercial, and leisure spaces, providing a holistic living experience. It will feature modern housing, commercial centers, educational institutions, healthcare facilities, and green spaces.</p>
+                <h3>SUSTAINABILITY</h3>
+                <p>Emphasis on green building practices, renewable energy sources, and sustainable infrastructure will ensure that the city not only thrives economically but also promotes environmental stewardship.</p>
+                <h3>COMMUNITY AMENITIES</h3>
+                <p>The city will include an entertainment district with sports complexes, museums, parks, and other recreational facilities, creating a vibrant and engaging community for residents and visitors alike.</p>
+            </div>
+            <div class="content-left-mid">
+                <img src="images/project4.jpg" alt="Urban Design Image">
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="content-left">
+                <img src="images/project3.jpg" alt="Job Creation Image">
+            </div>
+            <div class="content-right">
+                <h2>Economic & Social Impact</h2>
+                <h3>JOB CREATION</h3>
+                <p>The project is expected to create over 2 million jobs, encompassing direct employment in port operations and city management, as well as indirect and induced jobs through supplier networks and economic growth.</p>
+                <h3>ECONOMIC DEVELOPMENT</h3>
+                <p>By establishing a major trading hub, the project will attract international investments, foster local entrepreneurship, and stimulate economic diversification in Cross River State and the wider region.</p>
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="content-right">
+                <h2>Infrastructure & Connectivity</h2>
+                <h3>TRANSPORT LINKS</h3>
+                <p>Development of a new 50-mile, eight-lane intelligent highway and modern rail lines will ensure efficient connectivity to major cities and industrial hubs, facilitating smooth movement of goods and people.</p>
+                <h3>UTILITIES & SERVICES</h3>
+                <p>State-of-the-art infrastructure for power generation, water distribution, and communication systems will support the needs of both the seaport and the smart city, ensuring reliability and efficiency.</p>
+            </div>
+            <div class="content-left">
+                <img src="images/project2.jpg" alt="Transport Links Image">
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <nav class="footer-navbar">
+            <ul>
+                <li><a href="project.html">The Project</a></li>
+                <li><a href="program.html">Our Programs</a></li>
+                <li class="logo">
+                    <a href="index.html">
+                        <img src="images/mainlogo.png" alt="ASCCTC Logo">
+                        <span class="logo-text">ASCCTC</span>
+                    </a>
+                </li>
+                <li><a href="org.html">Our Organization</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+            const body = document.body;
+
+            hamburgerMenu.addEventListener('click', () => {
+                hamburgerMenu.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                body.classList.toggle('no-scroll');
+            });
+
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-nav a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburgerMenu.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    body.classList.remove('no-scroll');
+                });
+            });
+
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            const contentSections = document.querySelectorAll('.content-section, .content-section-mid');
+            contentSections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,921 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Prata&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.splash {
+    background-image: url("images/berkeley-communications-WEDDt-u3q3o-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}
+
+.splash-image-left,
+.splash-image-right {
+    position: absolute;
+    bottom: 420px;
+    width: 30%;
+    max-width: 300px;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.splash-image-left {
+    left: 20px;
+}
+
+.splash-image-right {
+    right: 20px;
+}
+
+.splash-image-left img,
+.splash-image-right img {
+    width: 100%;
+    height: auto;
+}
+
+.header-logo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1001;
+    width: 100px;
+}
+
+.header-logo a {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-logo img {
+    height: 50px;
+    transform: scale(2);
+}
+
+.header-logo .logo-text {
+    font-family: "Carter One", sans-serif;
+    font-size: 1rem;
+    color: white;
+    margin-top: 15px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.navbar ul li {
+    padding: 0 15px;
+}
+
+.navbar ul li a {
+    font-family: "Bona Nova SC", sans-serif;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    color: #978c4d;
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 700;
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(151, 140, 77, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+    background: #978c4d;
+    transform: scale(1.05);
+}
+
+.hamburger-icon {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(151, 140, 77, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-content {
+    text-align: center;
+    transform: translateY(50px);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-overlay.active .mobile-menu-content {
+    transform: translateY(0);
+}
+
+.mobile-menu-logo {
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards 0.2s;
+}
+
+.mobile-menu-logo .logo-placeholder {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #978c4d;
+    font-weight: bold;
+    margin: 0 auto 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-menu-logo .logo-text {
+    font-family: "Carter One", sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mobile-menu-nav a {
+    font-family: "Bona Nova SC", sans-serif;
+    color: white;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    min-width: 280px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.mobile-menu-nav a:nth-child(1) { animation-delay: 0.3s; }
+.mobile-menu-nav a:nth-child(2) { animation-delay: 0.4s; }
+.mobile-menu-nav a:nth-child(3) { animation-delay: 0.5s; }
+.mobile-menu-nav a:nth-child(4) { animation-delay: 0.6s; }
+
+.mobile-menu-nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.mobile-menu-nav a:hover::before,
+.mobile-menu-nav a.active::before {
+    left: 0;
+}
+
+.mobile-menu-nav a:hover,
+.mobile-menu-nav a.active {
+    background: rgba(255, 255, 255, 0.9);
+    color: #978c4d;
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.splash-content {
+    text-align: center;
+    z-index: 10;
+    margin-top: 120px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.5s;
+}
+
+.splash-content h1 {
+    font-family: "Prata", serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.splash-content p {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.contact-section {
+    background-color: white;
+    padding: 80px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.contact-header.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-header h1 {
+    font-family: "Prata", serif;
+    font-size: 3rem;
+    color: #978c4d;
+    margin-bottom: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.contact-header p {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.contact-content.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-info-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+}
+
+.contact-info-card h2 {
+    font-family: "Bona Nova SC", serif;
+    color: #978c4d;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 400;
+    position: relative;
+}
+
+.contact-info-card h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #978c4d, #b8a760);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+.contact-info-card h2:hover::after {
+    width: 100px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-left: 4px solid #978c4d;
+}
+
+.contact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: #978c4d;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    color: white;
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+    transform: scale(1.1);
+}
+
+.contact-details h3 {
+    font-family: "Roboto", sans-serif;
+    color: #978c4d;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.contact-details p {
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    font-size: 0.95rem;
+    margin: 2px 0;
+}
+
+.contact-details a {
+    color: #978c4d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #b8a760;
+}
+
+.contact-form-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+}
+
+.contact-form-card h2 {
+    font-family: "Bona Nova SC", serif;
+    color: #978c4d;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 400;
+    position: relative;
+}
+
+.contact-form-card h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #978c4d, #b8a760);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+.contact-form-card h2:hover::after {
+    width: 100px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    font-family: "Roboto", sans-serif;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    color: #333;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #978c4d;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(151, 140, 77, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.submit-button {
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #978c4d, #b8a760);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+    z-index: 0;
+}
+
+.submit-button:hover::before {
+    left: 0;
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #7a7041, #978c4d);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(151, 140, 77, 0.3);
+}
+
+.submit-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.location-section {
+    background: #f8f9fa;
+    padding: 80px 0;
+    border-top: 1px solid #e9ecef;
+    position: relative;
+    z-index: 1;
+}
+
+.location-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.location-container.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.location-container h2 {
+    font-family: "Prata", serif;
+    color: #978c4d;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.location-container p {
+    font-family: "Roboto", sans-serif;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.location-info {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.location-info h3 {
+    font-family: "Bona Nova SC", serif;
+    color: #978c4d;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 400;
+    position: relative;
+}
+
+.location-info h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(135deg, #978c4d, #b8a760);
+    border-radius: 1px;
+    transition: width 0.4s ease;
+}
+
+.location-info h3:hover::after {
+    width: 80px;
+}
+
+.location-info p {
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.footer {
+    background-color: #978c4d;
+    color: #fff;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-navbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-navbar ul {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-navbar li {
+    padding: 0 10px;
+}
+
+.footer-navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Bona Nova SC", sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+.footer-navbar a:hover {
+    opacity: 0.8;
+}
+
+.footer-navbar .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.footer-navbar .logo img {
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.footer-navbar .logo-text {
+    font-family: "Carter One", sans-serif;
+    font-size: 0.9rem;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .splash {
+        height: 50vh;
+    }
+
+    .splash-content {
+        margin-top: 80px;
+        padding: 0 20px;
+    }
+
+    .splash-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .splash-content p {
+        font-size: 1.1rem;
+    }
+
+    .splash-image-left,
+    .splash-image-right {
+        bottom: 10px;
+        width: 25%;
+        max-width: 200px;
+    }
+
+    .contact-section {
+        padding: 60px 0;
+    }
+
+    .location-section {
+        padding: 60px 0;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact-header p {
+        font-size: 1.1rem;
+    }
+
+    .contact-info-card,
+    .contact-form-card {
+        padding: 30px 20px;
+    }
+
+    .location-container h2 {
+        font-size: 2rem;
+    }
+
+    .location-info {
+        padding: 30px 20px;
+    }
+
+    .footer-navbar ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-navbar .logo {
+        order: -1;
+        margin-bottom: 20px;
+    }
+
+    .mobile-menu-nav a {
+        font-size: 1.2rem;
+        min-width: 280px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .splash-content h1 {
+        font-size: 2rem;
+    }
+
+    .splash-content p {
+        font-size: 1rem;
+    }
+
+    .contact-header h1 {
+        font-size: 2rem;
+    }
+
+    .contact-header p {
+        font-size: 1rem;
+    }
+
+    .location-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-info-card,
+    .contact-form-card,
+    .location-info {
+        padding: 25px 15px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+
+    .submit-button {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .mobile-menu-nav a {
+        font-size: 1.1rem;
+        min-width: 250px;
+        padding: 12px 25px;
+    }
+
+    .mobile-menu-logo .logo-placeholder {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    .mobile-menu-logo .logo-text {
+        font-size: 1.2rem;
+    }
+}

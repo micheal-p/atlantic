@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="8.0" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="0.0 0.0 880.0 8.0" width="880.0" zoomAndPan="magnify">
+    <g id="change1_1">
+        <path d="M440 8L0 4 440 0 880 4 440 8z" fill="#FFFFFF"/> <!-- Changed fill color to white -->
+    </g>
+</svg>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCCTC Homepage</title>
+    <link rel="icon" href="images/9WbJjctfhc6v.svg" type="image/svg" sizes="16x16">
+    <link rel="icon" href="images/9WbJjctfhc6v.svg" type="image/svg" sizes="32x32">
+    <link rel="apple-touch-icon" href="images/9WbJjctfhc6v.svg" sizes="180x180">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="splash">
+        <div class="splash-image-left">
+            <img src="images/line.svg" alt="Left Image">
+        </div>
+        <div class="splash-image-right">
+            <img src="images/line.svg" alt="Right Image">
+        </div>
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="images/mainlogo.png" alt="ASCCTC Logo">
+                <span class="logo-text">ASCCTC</span>
+            </a>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="project.html">The Project</a></li>
+                <li><a href="program.html">Our Programs</a></li>
+                <li><a href="org.html">Our Organization</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </div>
+        <div class="mobile-menu-overlay">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-logo">
+                    <div class="logo-placeholder">A</div>
+                    <span class="logo-text">ASCCTC</span>
+                </div>
+                <nav class="mobile-menu-nav">
+                    <a href="project.html">The Project</a>
+                    <a href="program.html">Our Programs</a>
+                    <a href="org.html">Our Organization</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+        <div class="splash-content">
+            <h1>The Atlantic Seaport City & Cargo Terminal Cross River</h1>
+        </div>
+    </section>
+    <section class="white-section">
+        <div class="watermark-container">
+            <div class="watermark"><img src="images/bg-wallpaper.svg" alt="Watermark 1"></div>
+        </div>
+        <div class="content-container">
+            <div class="text-content">
+                <h1 class="section-heading">The Atlantic Seaport City & <br> Cargo Terminal Cross River</h1>
+                <div class="section-text">
+                    <p>Welcome to Atlantic Seaport City & Cargo Terminal Cross River, where innovation, sustainability, and excellence converge to set new standards in seaport and urban development. We are leading a transformative project that integrates cutting-edge maritime operations with smart city living, creating a dynamic environment that prioritizes the well-being of our customers, communities, and the environment.</p>
+                    <p>At Atlantic Seaport City & Cargo Terminal, our vision is to establish a premier maritime and urban hub in Africa. We aim to redefine global standards for seaport efficiency, smart city integration, and sustainable development, fostering an ecosystem where business, technology, and community life flourish together.</p>
+                    <p>Our portfolio encompasses a groundbreaking deep-water mega-port terminal and a state-of-the-art smart city located in Cross River State, Nigeria. This ambitious project will not only enhance Nigeria's position in global trade but also provide a vibrant, sustainable living environment for residents and businesses.</p>
+                </div>
+            </div>
+            <div class="image-stack">
+                <img src="images/mapps.png" alt="Picture 1">
+                <img src="images/maps2.png" alt="Picture 2">
+            </div>
+            <a href="project.html" class="custom-button">
+                <span>Explore More</span>
+            </a>
+        </div>
+    </section>
+    <footer class="footer">
+        <nav class="footer-navbar">
+            <ul>
+                <li><a href="project.html">The Project</a></li>
+                <li><a href="program.html">Our Programs</a></li>
+                <li class="logo">
+                    <a href="index.html">
+                        <img src="images/mainlogo.png" alt="ASCCTC Logo">
+                        <span class="logo-text">ASCCTC</span>
+                    </a>
+                </li>
+                <li><a href="org.html">Our Organization</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+            const body = document.body;
+
+            hamburgerMenu.addEventListener('click', () => {
+                hamburgerMenu.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                body.classList.toggle('no-scroll');
+            });
+
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-nav a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburgerMenu.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    body.classList.remove('no-scroll');
+                });
+            });
+
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.section-heading, .section-text');
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
