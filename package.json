@@ -1,0 +1,15 @@
+{
+  "name": "atlantic-seaport-city-cargo-terminal-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rename.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^7.0.9"
+  }
+}

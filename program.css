@@ -29,7 +29,7 @@ ul {
 }
 
 .splash {
-    background-image: url("images/programs.jpg");
+    background-image: url("images/berkeley-communications-WEDDt-u3q3o-unsplash.jpg");
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -637,5 +637,4 @@ body.no-scroll {
         min-width: 220px;
         padding: 10px 25px;
     }
-
 }
